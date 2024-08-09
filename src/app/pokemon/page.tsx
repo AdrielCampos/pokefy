@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import DogImage from '/public/dog.jpg';
 import Tag from '@/common/components/tag';
 import GrayPokeballImage from '/public/gray_pokeball.png';
 import { PokedexEntry } from '@/common/types/pokedex';

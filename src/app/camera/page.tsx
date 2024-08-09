@@ -67,7 +67,11 @@ export default function Camera() {
           <div className="absolute p-4 top-4 left-4 z-10 drop-shadow-[0px_0px_3px_rgba(0,0,0)]">
             <Back />
           </div>
-          <Webcam className="h-screen w-screen object-cover" ref={webcamRef} />
+          <Webcam
+            className="h-screen w-screen object-cover"
+            videoConstraints={{ facingMode: 'environment' }}
+            ref={webcamRef}
+          />
           <div className="rounded-full absolute translate-x-1/2 right-1/2 bottom-8 border-[3px] border-white drop-shadow-[0px_0px_3px_rgba(0,0,0)]">
             <button className="p-6" onClick={capture} />
           </div>
