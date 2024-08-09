@@ -8,6 +8,7 @@ import { StatusIcons, StatusLabels, StatusOrder } from '@/common/types/status';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPokemon } from '@/actions/firebase/firestore';
+import { useUserProvider } from '@/common/providers/user-provider';
 
 function sortObjectByKeys(order: string[], obj: { [key: string]: any }): { [key: string]: any } {
   const sortedObj: { [key: string]: any } = {};
@@ -22,6 +23,7 @@ function sortObjectByKeys(order: string[], obj: { [key: string]: any }): { [key:
 }
 
 export default function Pokemon() {
+  const { user } = useUserProvider();
   const [pkmn, setPkmn] = useState<PokedexEntry>();
   const searchParams = useSearchParams();
   const pokemonUid = searchParams.get('uid');
@@ -34,14 +36,15 @@ export default function Pokemon() {
 
   useEffect(() => {
     if (!pokemonUid) return;
-    getPokemon({ userId: 'user-id', pokemonId: pokemonUid }).then((res) => {
+    if (!user || user === 'unlogged') return;
+    getPokemon({ userId: user.uid, pokemonId: pokemonUid }).then((res) => {
       if (res.data) {
         setPkmn(res.data);
       } else {
         console.error(res.error);
       }
     });
-  }, [pokemonUid]);
+  }, [pokemonUid, user]);
 
   return pkmn ? (
     <div className="overflow-x-hidden">
