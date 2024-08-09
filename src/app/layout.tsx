@@ -3,6 +3,7 @@ import { Nunito } from 'next/font/google';
 import '@/config/styles/globals.css';
 import { cn } from '@/common/utils/cn';
 import { UserProvider } from '@/common/providers/user-provider';
+import { Suspense } from 'react';
 
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="pt-br" className="overflow-x-hidden">
       <body className={cn(nunito.variable, 'flex items-center justify-center')} suppressHydrationWarning>
         <UserProvider>
-          <div className="flex-1 sm:max-w-[30rem]">{children}</div>
+          <Suspense>
+            <div className="flex-1 sm:max-w-[30rem]">{children}</div>
+          </Suspense>
         </UserProvider>
       </body>
     </html>
