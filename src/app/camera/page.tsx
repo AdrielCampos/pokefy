@@ -11,6 +11,7 @@ import { useUserProvider } from '@/common/providers/user-provider';
 
 export default function Camera() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const { user } = useUserProvider();
   const webcamRef = useRef<Webcam>(null);
   const [imgSrc, setImgSrc] = useState<string>();
@@ -76,6 +77,11 @@ export default function Camera() {
             <button className="p-6" onClick={capture} />
           </div>
         </>
+      )}
+      {loading && (
+        <div className="fixed z-50 bg-white h-screen w-screen bg-opacity-50 flex justify-center items-center">
+          <p>Carregando...</p>
+        </div>
       )}
     </div>
   );
