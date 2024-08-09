@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #ef4444;
+    --color-grass-primary: #77cc55;
+    --color-grass-secondary: #3fa189;
+    --color-grass-tertiary: #16775f;
+    --color-fire-primary: #ff4422;
+    --color-fire-secondary: #a11d0f;
+    --color-fire-tertiary: #5c0b00;
+    --color-water-primary: #3399ff;
+    --color-water-secondary: #1f6fd4;
+    --color-water-tertiary: #0d4b9f;
+    --color-bug-primary: #aabb22;
+    --color-bug-secondary: #7f8c17;
+    --color-bug-tertiary: #545a0d;
+    --color-normal-primary: #b6b6a8;
+    --color-normal-secondary: #8b8b7f;
+    --color-normal-tertiary: #5f5f54;
+    --color-poison-primary: #aa5599;
+    --color-poison-secondary: #7f3b6f;
+    --color-poison-tertiary: #54224a;
+    --color-electric-primary: #ffcc33;
+    --color-electric-secondary: #bfa11f;
+    --color-electric-tertiary: #8c7f0d;
+    --color-ground-primary: #ddbb55;
+    --color-ground-secondary: #a18e3f;
+    --color-ground-tertiary: #6e5f1f;
+    --color-fairy-primary: #ee99ee;
+    --color-fairy-secondary: #b17ab1;
+    --color-fairy-tertiary: #7d4b7d;
+    --color-fighting-primary: #bb5544;
+    --color-fighting-secondary: #8c3b2f;
+    --color-fighting-tertiary: #5f2417;
+    --color-psychic-primary: #ff5599;
+    --color-psychic-secondary: #b13f6f;
+    --color-psychic-tertiary: #7f0d4b;
+    --color-rock-primary: #bbaa66;
+    --color-rock-secondary: #8c7f4b;
+    --color-rock-tertiary: #5f5f2e;
+    --color-ghost-primary: #6666bb;
+    --color-ghost-secondary: #3f3f7f;
+    --color-ghost-tertiary: #1f1f4b;
+    --color-ice-primary: #66ccff;
+    --color-ice-secondary: #3fa1d4;
+    --color-ice-tertiary: #1f6f9f;
+    --color-dragon-primary: #7766ee;
+    --color-dragon-secondary: #4b3fbb;
+    --color-dragon-tertiary: #2e1f7f;
+    --color-dark-primary: #775544;
+    --color-dark-secondary: #4b2f1f;
+    --color-dark-tertiary: #2e170d;
+    --color-steel-primary: #aaaabb;
+    --color-steel-secondary: #7f8c99;
+    --color-steel-tertiary: #545f6e;
+    --color-flying-primary: #8899ff;
+    --color-flying-secondary: #5f6fd4;
+    --color-flying-tertiary: #3f4b9f;
+  }
+
+  body {
+    @apply antialiased font-nunito;
+  }
+}
