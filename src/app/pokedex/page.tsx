@@ -44,13 +44,14 @@ export default function Pokedex() {
         </div>
       </div>
       <div className="flex flex-col gap-4 p-6 pt-4 flex-1">
-        {pokemons.map((pokemon) => (
+        {pokemons.map((pokemon, index) => (
           <Pokemon
             key={pokemon.id}
             id={pokemon.id}
             url={pokemon.image}
             name={pokemon.name}
             types={pokemon.pokemonType}
+            number={index + 1}
           />
         ))}
         {pokemons.length === 0 && (

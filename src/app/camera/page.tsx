@@ -25,12 +25,14 @@ export default function Camera() {
 
   const handleUpload = useCallback(async () => {
     if (!imgSrc || !user || user === 'unlogged') return;
+    setLoading(true);
     const resizedImage = await resizeImage(imgSrc);
     const file = dataURLtoFile(resizedImage, 'image.jpg');
     const content = await analyzeImage(file);
     const imageUrl = await uploadImage({ image: file, userId: 'user-id' });
 
     if (!content.data || !imageUrl.data) {
+      setLoading(false);
       return;
     }
 
@@ -43,6 +45,7 @@ export default function Camera() {
     });
 
     if (!pokemonId.data) {
+      setLoading(false);
       return;
     }
 
@@ -79,8 +82,9 @@ export default function Camera() {
         </>
       )}
       {loading && (
-        <div className="fixed z-50 bg-white h-screen w-screen bg-opacity-50 flex justify-center items-center">
-          <p>Carregando...</p>
+        <div className="fixed z-50 bg-white h-screen w-screen bg-opacity-50 top-0 left-0 flex gap-4 flex-col justify-center items-center">
+          <div className="border-t-transparent border-solid animate-spin rounded-full border-primary border-4 h-32 w-32" />
+          <p className="text-xl font-bold text-primary">Escaneando...</p>
         </div>
       )}
     </div>

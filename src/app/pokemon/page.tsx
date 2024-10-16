@@ -47,7 +47,7 @@ export default function Pokemon() {
   }, [pokemonUid, user]);
 
   return pkmn ? (
-    <div className="overflow-x-hidden">
+    <div className="overflow-hidden">
       <div className="pt-8 p-6 rounded-b-xl bg-primary overflow-hidden shadow-lg -mb-2 relative z-10">
         <Back />
         <Image

@@ -13,7 +13,6 @@ export default function Home() {
 
   const login = async () => {
     const res = await loginWithGoogle();
-    console.log(res);
     if (res.data) {
       router.push('/pokedex');
     }
